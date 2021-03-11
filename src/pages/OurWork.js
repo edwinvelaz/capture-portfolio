@@ -9,6 +9,8 @@ import goodtimes from '../img/goodtimes-small.png';
 import {motion} from 'framer-motion';
 import { pageAnimation, fade, photoAnim, lineAnim, slider, sliderContainer } from '../animation';
 import {useScroll} from '../components/useScroll';
+//Components
+import ScrollTop from '../components/ScrollTop';
 
 
 const OurWork = () => {
