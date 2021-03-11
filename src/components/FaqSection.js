@@ -3,45 +3,40 @@ import styled from 'styled-components';
 import { StyledAbout } from '../styles';
 import Toggle from './Toggle';
 import {AnimateSharedLayout} from 'framer-motion';
+import {useScroll} from './useScroll';
+import {fade} from '../animation';
 
 const FaqSection = () => {
 
+    const [element, controls] = useScroll();
 
     return (
-        <StyledFaq>
+        <StyledFaq variants={fade} ref={element} animate={controls} initial='hidden'>
             <h2>Any Questions <span>FAQ</span></h2>
             <AnimateSharedLayout>
                 <Toggle title='How Do I Start?'>
-                    <div className="question">
                         <div className="answer">
                             <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
                             <p>Asperiores dicta molestias id tempore aliquam.</p>
                         </div>
-                    </div>
                 </Toggle>
                 <Toggle title='Daily Schedule'>
-                    <div className="question">
                         <div className="answer">
                             <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
                             <p>Asperiores dicta molestias id tempore aliquam.</p>
                         </div>
-                    </div>
                 </Toggle>
                 <Toggle title='Different Payment Methods'>
-                    <div className="question">
                         <div className="answer">
                             <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
                             <p>Asperiores dicta molestias id tempore aliquam.</p>
                         </div>
-                    </div>
                 </Toggle>
                 <Toggle title='What Product do you offer'>
-                    <div className="question">
                         <div className="answer">
                             <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
                             <p>Asperiores dicta molestias id tempore aliquam.</p>
                         </div>
-                    </div>
                 </Toggle>
             </AnimateSharedLayout>
         </StyledFaq>

@@ -5,6 +5,7 @@ import {StyledAbout, StyledDescription, StyledImage, StyledHide } from '../style
 //Framer Motion
 import { motion } from 'framer-motion';
 import { titleAnim, fade, photoAnim } from '../animation';
+
 //Components
 import Wave from './Wave';
 

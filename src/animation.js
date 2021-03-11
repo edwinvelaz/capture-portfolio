@@ -38,14 +38,13 @@ export const fade = {
 }
 
 export const photoAnim = {
-    hidden: {scale: 1.5, opacity: 0},
+    hidden: {scale: 1.5, opacity: 0, transition: {duration: 2}},
     show: {
         scale: 1,
         opacity: 1,
         transition: {
             ease: 'easeOut',
-            duration: 1,
-            delay: 2
+            duration: 0.5,
         }
     }
 }
@@ -71,3 +70,4 @@ export const sliderContainer = {
     hidden: {opacity: 1},
     show: {opacity: 1, transition: {staggerChildren: 0.20, ease: 'easeOut'}}
 }
+

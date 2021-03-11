@@ -8,9 +8,12 @@ import goodtimes from '../img/goodtimes-small.png';
 //Animations
 import {motion} from 'framer-motion';
 import { pageAnimation, fade, photoAnim, lineAnim, slider, sliderContainer } from '../animation';
+import {useScroll} from '../components/useScroll';
 
 
 const OurWork = () => {
+    const [element, controls] = useScroll();
+    const [element2, controls2] = useScroll();
     return (
         <StyledWork 
             variants={pageAnimation} 
@@ -33,18 +36,18 @@ const OurWork = () => {
                     </StyleHide>
                 </Link>
             </StyledMovie>
-            <StyledMovie>
+            <StyledMovie ref={element} variants={fade} animate={controls} initial='hidden'>
                 <h2>The Racer</h2>
-                <div className="line"></div>
+                <motion.div variants={lineAnim} className="line"></motion.div>
                 <Link to='/work/the-racer'>
-                    <img src={theracer} alt="Racer"/>
+                    <motion.img variants={photoAnim} src={theracer} alt="Racer"/>
                 </Link>
             </StyledMovie>
-            <StyledMovie>
+            <StyledMovie ref={element2} variants={fade} animate={controls2} initial='hidden'>
                 <h2>Good Times</h2>
-                <div className="line"></div>
+                <motion.div variants={lineAnim} className="line"></motion.div>
                 <Link to='/work/good-times'>
-                    <img src={goodtimes} alt="GoodTimes"/>
+                    <motion.img variants={photoAnim} src={goodtimes} alt="GoodTimes"/>
                 </Link>
             </StyledMovie>
         </StyledWork>
@@ -61,7 +64,7 @@ const StyledWork = styled(motion.div)`
     }
 `
 
-const StyledMovie = styled.div`
+const StyledMovie = styled(motion.div)`
     padding-bottom: 10rem;
     .line{
         height: 0.5rem;
@@ -71,7 +74,7 @@ const StyledMovie = styled.div`
     img {
         width: 100%;
         height: 70vh;
-        object-fit: cover;
+        object-fit: fill;
     }
 `
 const StyleHide = styled.div`
@@ -85,20 +88,20 @@ const Frame1 = styled(motion.div)`
     top: 0%;
     width: 100%;
     height: 100vh;
-    background: #fffebf;
+    background: #1C1D21;
     z-index: 2;
 `
 
 const Frame2 = styled(Frame1)`
-    background: #ff8efb;
+    background: #23d997;
 `
 
 const Frame3 = styled(Frame1)`
-    background: #8ed2ff;
+    background: #1C1D21;
 `
 
 const Frame4 = styled(Frame1)`
-    background: #8effa0;
+    background: #23d997;
 `
 
 export default OurWork;
